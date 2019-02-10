@@ -3,15 +3,12 @@
 
 <?php
 
-if (!defined('PDO::ATTR_DRIVER_NAME')) {
-echo 'PDO unavailable';
-}
-else{
-	echo 'Everything is all right';
-}
-$user = 'root';
-$password = 'rootpassword';
-
-$dbh = new PDO('mysql:host=mysql;dbname=dbtest', $user, $password);
+$host = 'mysql';
+$user = 'otheruser';
+$pass = 'password';
+$conn = new mysqli($host, $user, $pass);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else echo "Connected to MySQL successfully!";
 
 ?>
